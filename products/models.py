@@ -33,10 +33,11 @@ class Comment(models.Model):
         ('5', 'Perfect'),
     ]
 
-    body = models.TextField()
+    body = models.TextField(verbose_name="Comment Text")
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="comments")
-    star = models.CharField(max_length=1, choices=PRODUCT_STARS)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="comments",
+                               verbose_name='Comment Author')
+    star = models.CharField(max_length=1, choices=PRODUCT_STARS, verbose_name='Comment Star')
     is_active = models.BooleanField(default=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
