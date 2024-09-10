@@ -1,5 +1,4 @@
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import CommentForm
@@ -20,7 +19,7 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['active_comments'] = Product.objects.get(pk=self.kwargs['pk']).comments.filter(is_active=True)
+        # data['active_comments'] = Product.objects.get(pk=self.kwargs['pk']).comments.filter(is_active=True)
         data['comment_form'] = CommentForm()
         return data
 
