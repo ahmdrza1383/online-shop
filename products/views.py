@@ -1,5 +1,8 @@
-from django.shortcuts import get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
+from django.utils.translation import gettext as _
 
 from .forms import CommentForm
 from .models import Product, Comment
@@ -28,6 +31,13 @@ class CommentCreateView(CreateView):
     model = Comment
     form_class = CommentForm
 
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, _('You must be logged in.'))
+            return redirect('account_login')
+        else:
+            return super().post(request, *args, **kwargs)
+
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.author = self.request.user
@@ -37,5 +47,5 @@ class CommentCreateView(CreateView):
 
         return super().form_valid(form)
 
-    # def get_success_url(self):
-    #     return reverse_lazy('product_detail', args=[self.kwargs['pk']])
+# def get_success_url(self):
+#     return reverse_lazy('product_detail', args=[self.kwargs['pk']])

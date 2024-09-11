@@ -149,6 +149,10 @@ LANGUAGES = [
     ('fa', 'Persian'),
 ]
 
+LOCALE_PATHS = (
+    'templates/locale',
+)
+
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
 
