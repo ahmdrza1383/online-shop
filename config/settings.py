@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'allauth',
     'allauth.account',
+    'rosetta',
 
     # locals
     'accounts',
@@ -143,6 +144,11 @@ AUTHENTICATION_BACKENDS = [
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'fa'
 
+LANGUAGES = [
+    ('en', 'English'),
+    ('fa', 'Persian'),
+]
+
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
 
@@ -178,5 +184,3 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-

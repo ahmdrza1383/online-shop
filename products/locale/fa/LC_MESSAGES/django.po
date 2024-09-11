@@ -48,6 +48,3 @@ msgstr "امتیاز محصول"
 #: .\templates\products\product_detail_view.html:59
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
-
-#~ msgid "Comment Star"
-#~ msgstr "امتیاز محصول"
