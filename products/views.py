@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.utils.translation import gettext as _
 
+from cart.forms import AddToCartForm
 from .forms import CommentForm
 from .models import Product, Comment
 
@@ -24,6 +25,7 @@ class ProductDetailView(DetailView):
         data = super().get_context_data(**kwargs)
         # data['active_comments'] = Product.objects.get(pk=self.kwargs['pk']).comments.filter(is_active=True)
         data['comment_form'] = CommentForm()
+        data['add_to_cart_form'] = AddToCartForm()
         return data
 
 

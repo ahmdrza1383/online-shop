@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 12:23+0330\n"
+"POT-Creation-Date: 2024-09-12 16:53+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,10 +45,10 @@ msgstr "متن دیدگاه"
 msgid "Product Star"
 msgstr "امتیاز محصول"
 
-#: .\templates\products\product_detail_view.html:59
+#: .\templates\products\product_detail_view.html:56
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\views.py:36
+#: .\views.py:38
 msgid "You must be logged in."
 msgstr "شما باید وارد حساب خود شوید."
