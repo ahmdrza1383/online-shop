@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rosetta',
+    'mathfilters',
 
     # locals
     'accounts',
