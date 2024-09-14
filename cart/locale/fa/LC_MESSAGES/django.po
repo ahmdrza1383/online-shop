@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 17:17+0330\n"
+"POT-Creation-Date: 2024-09-14 18:40+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\forms.py:8
+#: .\forms.py:7
 msgid "Quantity"
 msgstr "تعداد"
 
-#: .\templates\cart\cart_detail.html:12
+#: .\templates\cart\cart_detail.html:14 .\templates\cart\cart_detail.html:24
 msgid "Cart"
 msgstr "سبد خرید"
+
+#: .\templates\cart\cart_detail.html:46
+msgid "product image"
+msgstr "تصویر محصول"
+
+#: .\templates\cart\cart_detail.html:47
+msgid "product name"
+msgstr "نام محصول"
+
+#: .\templates\cart\cart_detail.html:48
+msgid "price"
+msgstr "قیمت"
+
+#: .\templates\cart\cart_detail.html:49
+msgid "quantity"
+msgstr "تعداد"
+
+#: .\templates\cart\cart_detail.html:50
+msgid "total"
+msgstr "مجموع"
+
+#: .\templates\cart\cart_detail.html:83
+msgid "apply change"
+msgstr "اعمال تغییرات"
+
+#: .\templates\cart\cart_detail.html:103
+msgid "clear the cart"
+msgstr "خالی کردن سبد خرید"

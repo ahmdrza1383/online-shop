@@ -54,7 +54,7 @@
                                             {% for item in cart %}
                                                 <tr>
                                                     <td class="product-remove text-left">
-                                                        <a href="">
+                                                        <a href="{% url 'cart:cart_remove' item.product_obj.id %}">
                                                             <i class="flaticon flaticon-cross"></i>
                                                         </a>
                                                     </td>
@@ -64,7 +64,7 @@
                                                     </td>
                                                     <td class="product-name wide-column">
                                                         <h3>
-                                                            <a href="product-details.html">{{ item.product_obj.name }}</a>
+                                                            <a href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.name }}</a>
                                                         </h3>
                                                     </td>
                                                     <td class="product-price">
@@ -73,10 +73,16 @@
                                                             </span>
                                                     </td>
                                                     <td class="product-quantity">
-                                                        <div class="quantity">
-                                                            <input type="number" class="quantity-input" name="qty"
-                                                                   id="qty-1" value="{{ item.quantity }}" min="1">
-                                                        </div>
+                                                        <form action="" method="post">
+                                                            <div class="quantity">
+                                                                <input type="number" class="quantity-input" name="qty"
+                                                                       id="qty-1" value="{{ item.quantity }}" min="1">
+                                                            </div>
+                                                            <button type="submit"
+                                                                    class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                                                {% trans 'apply change' %}
+                                                            </button>
+                                                        </form>
                                                     </td>
                                                     <td class="product-total-price">
                                                             <span class="product-price-wrapper">
@@ -92,7 +98,11 @@
                             </div>
                             <div class="row no-gutters border-top pt--20 mt--20">
                                 <div class="col-sm-6 text-sm-right">
-                                    <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                                    <form action="{% url 'cart:cart_clear' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="cart-form__btn">{% trans 'clear the cart' %}</button>
+                                    </form>
                                 </div>
                             </div>
                         </form>

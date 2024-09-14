@@ -20,3 +20,17 @@ def add_to_cart_view(request, product_id):
         cart.add(product, int(cleaned_data.get('quantity')))
 
     return redirect('cart:cart_detail')
+
+
+def remove_from_cart_view(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    cart = Cart(request)
+    cart.remove(product)
+
+    return redirect('cart:cart_detail')
+
+
+def clear_cart_view(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart:cart_detail')

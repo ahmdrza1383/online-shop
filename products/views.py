@@ -25,7 +25,7 @@ class ProductDetailView(DetailView):
         data = super().get_context_data(**kwargs)
         # data['active_comments'] = Product.objects.get(pk=self.kwargs['pk']).comments.filter(is_active=True)
         data['comment_form'] = CommentForm()
-        data['add_to_cart_form'] = AddToCartForm()
+        # data['add_to_cart_form'] = AddToCartForm()
         return data
 
 
