@@ -1,12 +1,11 @@
 {% extends '_base.html' %}
 
 {% load crispy_forms_tags %}
-
 {% load i18n %}
-
 {% load comment_tags %}
-
 {% load static %}
+{% load jalali_tags %}
+{% load persian_translator %}
 
 {% block title %}
     {{ product.name }}
@@ -45,7 +44,7 @@
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
                                     <span class="money text-success">۱۴۸,۰۰۰ تومان</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">{{ product.price }} تومان</span>
+                                    <span class="money old-price text-danger">{{ product.price|translate_num_to_persian }} تومان</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                     <form action="{% url 'cart:cart_add' product.id %}" method="post">
@@ -142,7 +141,7 @@
                                                                             <div class="review__meta">
                                                                                 <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                                 <span class="review__dash">-</span>
-                                                                                <span class="review__published-date">{{ comment.datetime_created }}</span>
+                                                                                <span class="review__published-date">{{ comment.datetime_created|to_jalali:'%Y/%m/%d' }}</span>
                                                                             </div>
                                                                             <div class="product-rating">
                                                                                 <div class="m-0 star-rating star-five">
