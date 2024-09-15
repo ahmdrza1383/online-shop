@@ -3,10 +3,12 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from ckeditor.fields import RichTextField
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     price = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     cover = models.ImageField(upload_to='products/covers/', verbose_name=_('product cover'))

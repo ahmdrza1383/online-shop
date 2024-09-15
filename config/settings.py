@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'rosetta',
     'mathfilters',
     'jalali_date',
+    'ckeditor',
 
     # locals
     'accounts',
@@ -66,6 +67,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'persian_translate',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -173,6 +175,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath('static'),
 ]
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -226,3 +229,6 @@ JALALI_DATE_DEFAULTS = {
         }
     },
 }
+
+# ckeditor
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
