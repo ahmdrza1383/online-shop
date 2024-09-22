@@ -3,6 +3,8 @@
 {% load i18n %}
 
 {% load static %}
+{% load persian_translator %}
+{% load humanize %}
 
 <!doctype html>
 <html lang="en">
@@ -220,7 +222,7 @@
                                         </a>
                                     </span>
                                 <span class="mini-cart__product__quantity">
-                                        <span>{{ item.product_obj.price }} تومان</span> &#215; <span>{{ item.quantity }}</span>
+                                        <span dir="ltr">{{ item.product_obj.price|intcomma:False|translate_num_to_persian }} {% trans '$' %}</span> &#215; <span>{{ item.quantity }}</span>
                                 </span>
                             </div>
                         </li>
@@ -228,7 +230,7 @@
                 </ul>
                 <div class="mini-cart__total">
                     <span>{% trans 'total' %}</span>
-                    <span class="ammount"> {{ cart.get_total_price }}تومان</span>
+                    <span class="ammount" dir="ltr"> {{ cart.get_total_price|intcomma:False|translate_num_to_persian }} {% trans '$'%}</span>
                 </div>
                 <div class="mini-cart__buttons">
                     <a href="{% url 'cart:cart_detail' %}"

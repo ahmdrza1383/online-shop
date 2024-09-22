@@ -120,14 +120,14 @@
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.get_total_price }} تومان</span>
+                                                    <span class="money">{{ cart.get_total_price }} {% translate '$' %}</span>
                                                 </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                                ثبت سفارش
+                            <a href="{% url 'orders:order_create' %}" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                                {% trans 'order registration' %}
                             </a>
                         </div>
                     </div>
