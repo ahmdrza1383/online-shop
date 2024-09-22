@@ -1,14 +1,12 @@
 {% extends '_base.html' %}
 
 {% load crispy_forms_tags %}
-
 {% load mathfilters %}
-
 {% load i18n %}
-
 {% load comment_tags %}
-
 {% load static %}
+{% load humanize %}
+{% load persian_translator %}
 
 {% block title %}
     {% trans 'Cart' %}
@@ -58,7 +56,7 @@
                                                     </a>
                                                 </td>
                                                 <td class="product-thumbnail text-left">
-                                                    <img src="assets/img/products/prod-10-70x88.jpg"
+                                                    <img src="{{ item.product_obj.cover.url }}"
                                                          alt="Product Thumnail">
                                                 </td>
                                                 <td class="product-name wide-column">
@@ -68,7 +66,8 @@
                                                 </td>
                                                 <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price }} تومان</span>
+                                                                <span class="money"
+                                                                      dir="ltr">{{ item.product_obj.price|intcomma:False|translate_num_to_persian }} {% trans '$' %}</span>
                                                             </span>
                                                 </td>
                                                 <td class="product-quantity">
@@ -89,7 +88,7 @@
                                                 </td>
                                                 <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.quantity|mul:item.product_obj.price }}</span>
+                                                                <span class="money" dir="ltr">{{ item.quantity|mul:item.product_obj.price|intcomma:False|translate_num_to_persian }}</span>
                                                             </span>
                                                 </td>
                                             </tr>
@@ -120,13 +119,15 @@
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.get_total_price }} {% translate '$' %}</span>
+                                                    <span dir="ltr"
+                                                          class="money">{{ cart.get_total_price|intcomma:False|translate_num_to_persian }} {% translate '$' %}</span>
                                                 </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="{% url 'orders:order_create' %}" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                            <a href="{% url 'orders:order_create' %}"
+                               class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
                                 {% trans 'order registration' %}
                             </a>
                         </div>

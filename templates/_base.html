@@ -211,7 +211,7 @@
                         <li class="mini-cart__product d-flex justify-content-between">
                             <div class="mini-cart__product__image">
                                 <a href="{% url 'product_detail' item.product_obj.id %}">
-                                    <img src="{% static 'img/products/prod-1-100x100.jpg' %}" alt="products">
+                                    <img src="{{ item.product_obj.cover.url }}" alt="products">
                                 </a>
                             </div>
                             <div class="mini-cart__product__content pt-2">
@@ -222,7 +222,7 @@
                                         </a>
                                     </span>
                                 <span class="mini-cart__product__quantity">
-                                        <span dir="ltr">{{ item.product_obj.price|intcomma:False|translate_num_to_persian }} {% trans '$' %}</span> &#215; <span>{{ item.quantity }}</span>
+                                        <span dir="ltr">{{ item.product_obj.price|intcomma:False|translate_num_to_persian }} {% trans '$' %}</span> &#215; <span>{{ item.quantity|translate_num_to_persian }}</span>
                                 </span>
                             </div>
                         </li>

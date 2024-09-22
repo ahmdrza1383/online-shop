@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-15 15:46+0330\n"
+"POT-Creation-Date: 2024-09-22 18:46+0330\n"
 "PO-Revision-Date: 2024-09-22 11:55+0330\n"
 "Last-Translator:   <a.mousavi1383am@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,6 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\models.py:14
-#| msgid "Product Star"
 msgid "product cover"
 msgstr "عکس محصول"
 
@@ -52,12 +51,17 @@ msgid "Product Star"
 msgstr "امتیاز محصول"
 
 #: .\templates\products\product_detail_view.html:48
+#: .\templates\products\products_list_view.html:65
 msgid "$"
 msgstr "تومان"
 
 #: .\templates\products\product_detail_view.html:60
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
+
+#: .\templates\products\products_list_view.html:69
+msgid "show product detail"
+msgstr "مشاهده جزئیات محصول"
 
 #: .\views.py:38
 msgid "You must be logged in."
