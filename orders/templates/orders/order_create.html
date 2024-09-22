@@ -41,30 +41,33 @@
                                 <h2>{% trans 'order detail' %}</h2>
                             </div>
                             <div class="checkout-form">
-                                <form action="#" class="form form--checkout">
+                                <form action="" method="post" class="form form--checkout">
                                     {% csrf_token %}
+                                    {% if order_form.errors %}
+                                        <div class="alert alert-danger">{{ order_form.errors }}</div>
+                                    {% endif %}
                                     <div class="form-row mb--20">
                                         <div class="form__group col-md-6 mb-sm--30">
                                             <label for="billing_fname"
                                                    class="form__label form__label--2">{% trans 'first name' %} <span
                                                     class="required">*</span></label>
-                                            <input type="text" name="first_name" id="billing_fname"
+                                            <input type="text" name="user_first_name" id="billing_fname"
                                                    class="form__input form__input--2" required>
                                         </div>
                                         <div class="form__group col-md-6">
                                             <label for="billing_lname"
                                                    class="form__label form__label--2">{% trans 'last name' %}
                                                 <span class="required">*</span></label>
-                                            <input type="text" name="last_name" id="billing_lname"
+                                            <input type="text" name="user_last_name" id="billing_lname"
                                                    class="form__input form__input--2" required>
                                         </div>
                                     </div>
                                     <div class="form-row mb--20">
                                         <div class="form__group col-12">
-                                            <label for="billing_company"
+                                            <label for="billing_address"
                                                    class="form__label form__label--2">{% trans 'address' %}
                                                 <span class="required">*</span></label>
-                                            <input type="text" name="address" id="billing_company"
+                                            <input type="text" name="address" id="billing_address"
                                                    class="form__input form__input--2" required>
                                         </div>
                                     </div>
@@ -77,25 +80,17 @@
                                                    class="form__input form__input--2" required>
                                         </div>
                                     </div>
-                                    <div class="form-row mb--20">
-                                        <div class="form__group col-12">
-                                            <label for="billing_email"
-                                                   class="form__label form__label--2">{% trans 'email' %} <span
-                                                    class="required">*</span></label>
-                                            <input type="email" name="email" id="billing_email"
-                                                   class="form__input form__input--2" required>
-                                        </div>
-                                    </div>
                                     <div class="form-row">
                                         <div class="form__group col-12">
                                             <label for="orderNotes"
                                                    class="form__label form__label--2">{% trans 'your note' %}</label>
                                             <textarea class="form__input form__input--2 form__input--textarea"
-                                                      id="orderNotes" name="note"
+                                                      id="orderNotes" name="notes"
                                                       placeholder="{% trans 'If you have a note, write it here. Otherwise, leave this field blank.' %}"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">{% trans 'submit' %}</button>
+                                    <button type="submit"
+                                            class="btn btn-small btn-bg-red btn-color-white btn-hover-2">{% trans 'submit' %}</button>
                                 </form>
                             </div>
                         </div>

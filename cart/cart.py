@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404
+
 from products.models import Product
 
 
@@ -52,4 +54,11 @@ class Cart:
         self.save()
 
     def get_total_price(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        cart = self.cart.copy()
+
+        for product in products:
+            cart[str(product.id)]['product_obj'] = product
+
         return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())

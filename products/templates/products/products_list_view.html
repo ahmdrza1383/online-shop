@@ -61,7 +61,7 @@
                                                                 <span class="money text-danger">{{ product.price }} تومان</span>
                                                             </span>
                                                             </div>
-                                                            <a href="cart.html"
+                                                            <a href="{% url 'cart:cart_add' product.id %}"
                                                                class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه
                                                                 کردن به سبد خرید</a>
                                                         </div>
